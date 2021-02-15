@@ -1,17 +1,17 @@
 pipeline {
 
    agent any
+   environment {
+      PATH = '/usr/local/bin:$PATH'
+   }
    
    stages {
 
       stage("secrets-scanning") {
         
-         withEnv(['PATH=/usr/local/bin:$PATH']) {
-
-         steps {
-            echo 'About to run truffleHog...'
-            sh 'truffleHog .'
-         }}
+      steps {
+         echo 'About to run truffleHog...'
+         sh 'truffleHog .'
       }
       
       stage("next stage") {
