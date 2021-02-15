@@ -2,7 +2,7 @@ pipeline {
 
    agent any
    environment {
-      PATH+EXTRA = '/usr/local/bin'
+      PATH+EXTRA=/usr/local/bin
    }
    
    stages {
