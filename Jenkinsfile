@@ -19,7 +19,7 @@ pipeline {
             echo 'Currently in'
             sh "pwd"
             echo 'About to run truffleHog...'
-            sh "mkdir ./reports/truffleHog"
+            sh "mkdir -p ./reports/truffleHog"
             sh "truffleHog --json ./ > ./reports/truffleHog/results.json"
          }
       }
