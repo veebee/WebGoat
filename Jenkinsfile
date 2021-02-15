@@ -1,10 +1,13 @@
 pipeline {
+
    agent any
    
    stages {
-      stage(‘secrets-scanning’) {
+
+      stage("secrets-scanning") {
+
          steps {
-            echo ‘pulling latest truffle hog image’
+            echo 'pulling latest truffle hog image'
          } 
       }
    }
