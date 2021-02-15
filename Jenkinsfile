@@ -1,11 +1,17 @@
 pipeline {
 
    agent any
-   environment {
-      PATH+EXTRA=/usr/local/bin
-   }
    
    stages {
+
+      stage("setup") {
+        steps {
+           sh '''
+              echo "PATH = ${PATH}"
+              echo "M2_HOME = ${M2_HOME}"
+           ''' 
+         }
+      }
 
       stage("secrets-scanning") {
         
