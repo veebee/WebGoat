@@ -11,7 +11,7 @@ pipeline {
         
          steps {
             echo 'About to run truffleHog...'
-            sh 'truffleHog .'
+            truffleHog .
          }
       }
 
