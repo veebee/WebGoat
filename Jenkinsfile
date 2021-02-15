@@ -10,7 +10,14 @@ pipeline {
             echo 'pulling latest truffle hog image'
             sh 'docker pull gesellix/trufflehog'
             echo 'pull complete, will scan repo for secrets now...'
-         } 
+         }
+      }
+      
+      stage("next stage") {
+ 
+         steps {
+            echo 'next stage'
+         }
       }
    }
 }
