@@ -5,6 +5,8 @@ pipeline {
    stages {
 
       stage("secrets-scanning") {
+        
+         withEnv(['PATH=/usr/local/bin:$PATH'])
 
          steps {
             echo 'About to run truffleHog...'
