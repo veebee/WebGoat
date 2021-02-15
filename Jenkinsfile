@@ -9,11 +9,12 @@ pipeline {
 
       stage("secrets-scanning") {
         
-      steps {
-         echo 'About to run truffleHog...'
-         sh 'truffleHog .'
+         steps {
+            echo 'About to run truffleHog...'
+            sh 'truffleHog .'
+         }
       }
-      
+
       stage("next stage") {
  
          steps {
