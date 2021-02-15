@@ -7,7 +7,7 @@ pipeline {
       stage("setup") {
         steps {
            sh '''
-              echo "PATH = ${PATH}"
+              echo "PATH = ${PATH}"whih 
               echo "M2_HOME = ${M2_HOME}"
            ''' 
          }
@@ -17,7 +17,8 @@ pipeline {
         
          steps {
             echo 'About to run truffleHog...'
-            sh "truffleHog ."
+            sh "mkdir ./reports/truffleHog"
+            sh "truffleHog --json ./ > ./reports/truffleHog/results.json"
          }
       }
 
