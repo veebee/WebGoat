@@ -16,6 +16,8 @@ pipeline {
       stage("secrets-scanning") {
         
          steps {
+            echo 'Currently in'
+            sh "pwd"
             echo 'About to run truffleHog...'
             sh "mkdir ./reports/truffleHog"
             sh "truffleHog --json ./ > ./reports/truffleHog/results.json"
