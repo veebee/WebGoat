@@ -9,6 +9,7 @@ pipeline {
            sh '''
               echo "PATH = ${PATH}"whih 
               echo "M2_HOME = ${M2_HOME}"
+              echo WORKSPACE
            ''' 
          }
       }
