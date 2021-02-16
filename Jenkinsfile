@@ -7,7 +7,7 @@ pipeline {
       stage("setup") {
         steps {
            sh '''
-              export WORKSPACE_J = $(echo $WORKSPACE | sed "s_/_\\/_g")
+              export WORKSPACE_J=$(echo $WORKSPACE | sed 's_/_\\/_g')
               sed -i 's/\\%WORKDIR_PLACEHOLDER\\%/$WORKSPACE_J/' jenkins-ci/Dockerfile
            ''' 
          }
