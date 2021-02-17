@@ -17,7 +17,7 @@ pipeline {
          steps {
             sh '''
                mkdir -p ./reports/detect-secrets
-               docker run --rm -v $PWD:/data detect-secrets
+               docker run --rm -v $PWD:/data detect-secrets --user "$(id -u):$(id -g)"
             '''
          }
       }
