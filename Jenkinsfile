@@ -8,6 +8,7 @@ pipeline {
         steps {
            sh '''
               cd ./jenkins-ci/ && docker build -t detect-secrets .
+              whoami
            ''' 
          }
       }
