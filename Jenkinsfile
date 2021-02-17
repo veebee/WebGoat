@@ -8,6 +8,7 @@ pipeline {
         steps {
            sh '''
               cd ./jenkins-ci/ && docker build -t detect-secrets .
+              chmod +x run.sh
            ''' 
          }
       }
@@ -16,6 +17,7 @@ pipeline {
         
          steps {
             sh '''
+               pwd
                mkdir -p ./reports/detect-secrets
                docker run --rm -v $PWD:/data detect-secrets
             '''
