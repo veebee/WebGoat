@@ -7,9 +7,8 @@ pipeline {
       stage("setup") {
         steps {
            sh '''
-              echo "PATH = ${PATH}" 
-              echo "M2_HOME = ${M2_HOME}"
-              echo WORKSPACE
+              cd ./jenkins-ci/ && docker build -t detect-secrets .
+              chmod +x run.sh
            ''' 
          }
       }
@@ -17,8 +16,10 @@ pipeline {
       stage("secrets-scanning") {
         
          steps {
-            sh "mkdir -p ./reports/detect-secrets"
-            sh "detect-secrets scan . > ./reports/detect-secrets/report.json"
+            sh '''
+               mkdir -p ./reports/detect-secrets
+               docker run --rm -v $PWD:/data detect-secrets
+            '''
          }
       }
 
