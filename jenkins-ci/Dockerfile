@@ -3,6 +3,7 @@ FROM python:3.8
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir detect-secrets
 
-WORKDIR %WORKDIR_PLACEHOLDER%
+WORKDIR /data
 
-RUN detect-secrets
+ADD run.sh /root/run.sh
+CMD [ "/root/run.sh" ]
