@@ -7,8 +7,6 @@ pipeline {
       stage("setup") {
         steps {
            sh '''
-              export WORKSPACE_J=$(echo $WORKSPACE | sed 's_/_\\/_g')
-              sed -i.bak 's/\\%WORKDIR_PLACEHOLDER\\%/$WORKSPACE_J/' ./jenkins-ci/Dockerfile
               cd ./jenkins-ci/ && docker build -t detect-secrets .
            ''' 
          }
