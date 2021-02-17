@@ -19,7 +19,7 @@ pipeline {
          steps {
             sh '''
                mkdir -p ./reports/detect-secrets"
-               docker run -ti --rm detect-secrets > ./reports/detect-secrets/report.json
+               docker run --rm -v $PWD:/data detect-secrets
             '''
          }
       }
