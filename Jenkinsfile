@@ -17,8 +17,10 @@ pipeline {
       stage("secrets-scanning") {
         
          steps {
-            sh "mkdir -p ./reports/detect-secrets"
-            sh "detect-secrets scan . > ./reports/detect-secrets/report.json"
+            sh '''
+               mkdir -p ./reports/detect-secrets"
+               docker run -ti --rm detect-secrets > ./reports/detect-secrets/report.json
+            '''
          }
       }
 
